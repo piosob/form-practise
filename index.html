@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <title>test with forms</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <form class="form" id="user-data">
+            <label for="name">Imię:</label>
+            <input type="text" name="name" id="name">
+            <label for="surname">Nazwisko:</label>
+            <input type="text" name="surname" id="surname">
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email">
+            <label for="phone">Nr telefonu:</label>
+            <input type="number" name="phone" id="phone">
+            <label for="hobbys">Wybierz hobby:</label>
+            <select name="hobbys" id="hobbys">
+              <option value="tenis">tenis</option>
+              <option value="golf">golf</option>
+              <option value="swim">pływanie</option>
+              <option value="darts">dartsy</option>
+              <option value="football">piłka nożna</option>
+              <option value="volleybay">siatkówka</option>
+            </select>
+            <label for="agree" class="checkbox">
+              <input type="checkbox" name="agree" id="agree">
+              <span></span>
+              Akceptuje regulamin
+            </label>
+
+
+          </form>
+        </div>
+        <div class="col-6"></div>
+      </div>
+
+    </div>
+  </div>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
