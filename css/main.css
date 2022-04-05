@@ -112,36 +112,40 @@ button {
   }
 }
 
+.d-none {
+  display: none;
+}
+
 body {
   font-family: "Lato", sans-serif;
 }
 
-.form {
+.form,
+.users-container {
   margin: 2em;
   padding: 3em 1em;
   border: 1px solid #333;
   background-color: #eee;
   border-radius: 15px;
 }
-.form *::-moz-placeholder {
-  font-family: arial;
+.form *::-moz-placeholder, .users-container *::-moz-placeholder {
+  font-family: "Lato", sans-serif;
   font-size: 0.8em;
   padding: 0.3em;
-  font-style: italic;
 }
-.form *:-ms-input-placeholder {
-  font-family: arial;
+.form *:-ms-input-placeholder, .users-container *:-ms-input-placeholder {
+  font-family: "Lato", sans-serif;
   font-size: 0.8em;
   padding: 0.3em;
-  font-style: italic;
 }
-.form *::placeholder {
-  font-family: arial;
+.form *::placeholder,
+.users-container *::placeholder {
+  font-family: "Lato", sans-serif;
   font-size: 0.8em;
   padding: 0.3em;
-  font-style: italic;
 }
-.form label {
+.form label,
+.users-container label {
   width: 100%;
   height: 100%;
   font-size: 1.5em;
@@ -149,7 +153,10 @@ body {
 }
 .form input,
 .form textarea,
-.form select {
+.form select,
+.users-container input,
+.users-container textarea,
+.users-container select {
   display: block;
   width: 100%;
   font-size: 1.3em;
@@ -161,28 +168,80 @@ body {
 }
 .form input:focus,
 .form textarea:focus,
-.form select:focus {
+.form select:focus,
+.users-container input:focus,
+.users-container textarea:focus,
+.users-container select:focus {
   box-shadow: 2px 0px 20px 0px #ddd;
   outline: none;
   border: 2px solid black;
 }
-.form .checkbox {
+.form .checkbox,
+.users-container .checkbox {
   display: flex;
   gap: 1em;
   cursor: pointer;
 }
-.form .checkbox input {
+.form .checkbox input,
+.users-container .checkbox input {
   display: none;
 }
-.form .checkbox span {
+.form .checkbox span,
+.users-container .checkbox span {
   display: block;
   width: 30px;
   height: 30px;
   border: 2px solid #333;
 }
-.form .checkbox input:checked + span {
+.form .checkbox input:checked + span,
+.users-container .checkbox input:checked + span {
   background-image: url(../assets/checkmark.svg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.form .btn-submit,
+.users-container .btn-submit {
+  border-radius: 15px;
+  cursor: pointer;
+  display: block;
+  padding: 0.5em 1em;
+  font-size: 1.5em;
+  border: 2px solid #333;
+  margin: 2em auto 1em;
+  background-color: #eee;
+  font-weight: bold;
+}
+
+.users-container .user-header {
+  font-size: 1.3em;
+  font-weight: bold;
+  background-color: #ddd;
+}
+.users-container .new-user span {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.users-container .btn-delete {
+  border: 2px solid rgb(46, 2, 2);
+  background-color: rgb(181, 24, 24);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0.3em 1em;
+}
+
+.error-message {
+  border: 2px solid rgb(46, 2, 2);
+  background-color: rgb(181, 24, 24);
+  color: #fff;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  font-size: 1em;
 }
 /*# sourceMappingURL=main.css.map */

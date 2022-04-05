@@ -13,18 +13,18 @@
   <div class="wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="col-4">
           <form class="form" id="user-data">
             <label for="name">Imię:</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" placeholder="Podaj swoje imię">
             <label for="surname">Nazwisko:</label>
-            <input type="text" name="surname" id="surname">
+            <input type="text" name="surname" id="surname" placeholder="Podaj swoje nazwisko">
             <label for="email">E-mail:</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" placeholder="Podaj swój email">
             <label for="phone">Nr telefonu:</label>
-            <input type="number" name="phone" id="phone">
+            <input type="number" name="phone" id="phone" placeholder="Podaj swój numer telefonu">
             <label for="hobbys">Wybierz hobby:</label>
-            <select name="hobbys" id="hobbys">
+            <select name="hobbys" id="hobbys" placeholder="Podaj swoje hobby">
               <option value="tenis">tenis</option>
               <option value="golf">golf</option>
               <option value="swim">pływanie</option>
@@ -38,10 +38,31 @@
               Akceptuje regulamin
             </label>
 
-
+            <button class="btn-submit" type="submit">Wyślij!</button>
           </form>
         </div>
-        <div class="col-6"></div>
+        <div class="col-8">
+          <section class="users-container ">
+            <div class="container">
+              <div class="row user-header">
+                <div class="col-2"><span>Imię</span></div>
+                <div class="col-2"><span>Nazwisko</span></div>
+                <div class="col-2"><span>E-mail</span></div>
+                <div class="col-2"><span>Nr telefonu</span></div>
+                <div class="col-2"><span>Hobby</span></div>
+              </div>
+
+              <div class="row new-user">
+                <div class="col-2"><span>Jan</span></div>
+                <div class="col-2"><span>Kowalski</span></div>
+                <div class="col-2"><span>jankowalski@gsdasdas.com</span></div>
+                <div class="col-2"><span>22250432</span></div>
+                <div class="col-2"><span>golf</span></div>
+                <div class="col-2"><button class="btn-delete" type="button">usuń</button></div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
 
     </div>
