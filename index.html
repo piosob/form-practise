@@ -15,14 +15,14 @@
       <div class="row">
         <div class="col-4">
           <form class="form" id="user-data">
-            <label for="name">Imię:</label>
-            <input type="text" name="name" id="name" placeholder="Podaj swoje imię">
+            <label for="userName">Imię:</label>
+            <input type="text" name="userName" id="userName" required placeholder="Podaj swoje imię">
             <label for="surname">Nazwisko:</label>
-            <input type="text" name="surname" id="surname" placeholder="Podaj swoje nazwisko">
+            <input type="text" name="surname" id="surname" required placeholder="Podaj swoje nazwisko">
             <label for="email">E-mail:</label>
-            <input type="email" name="email" id="email" placeholder="Podaj swój email">
+            <input type="email" name="email" id="email" required placeholder="Podaj swój email">
             <label for="phone">Nr telefonu:</label>
-            <input type="number" name="phone" id="phone" placeholder="Podaj swój numer telefonu">
+            <input type="number" name="phone" id="phone" required placeholder="Podaj swój numer telefonu">
             <label for="hobbys">Wybierz hobby:</label>
             <select name="hobbys" id="hobbys" placeholder="Podaj swoje hobby">
               <option value="tenis">tenis</option>
@@ -37,7 +37,6 @@
               <span></span>
               Akceptuje regulamin
             </label>
-
             <button class="btn-submit" type="submit">Wyślij!</button>
           </form>
         </div>
