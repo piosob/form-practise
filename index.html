@@ -1,72 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>test with forms</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <title>test with forms</title>
-</head>
-
-<body>
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <form class="form" id="user-data">
-            <label for="userName">Imię:</label>
-            <input type="text" name="userName" id="userName" required placeholder="Podaj swoje imię">
-            <label for="surname">Nazwisko:</label>
-            <input type="text" name="surname" id="surname" required placeholder="Podaj swoje nazwisko">
-            <label for="email">E-mail:</label>
-            <input type="email" name="email" id="email" required placeholder="Podaj swój email">
-            <label for="phone">Nr telefonu:</label>
-            <input type="number" name="phone" id="phone" required placeholder="Podaj swój numer telefonu">
-            <label for="hobbys">Wybierz hobby:</label>
-            <select name="hobbys" id="hobbys" placeholder="Podaj swoje hobby">
-              <option value="tenis">tenis</option>
-              <option value="golf">golf</option>
-              <option value="swim">pływanie</option>
-              <option value="darts">dartsy</option>
-              <option value="football">piłka nożna</option>
-              <option value="volleybay">siatkówka</option>
-            </select>
-            <label for="agree" class="checkbox">
-              <input type="checkbox" name="agree" id="agree">
-              <span></span>
-              Akceptuje regulamin
-            </label>
-            <button class="btn-submit" type="submit">Wyślij!</button>
-          </form>
-        </div>
-        <div class="col-8">
-          <section class="users-container ">
-            <div class="container">
-              <div class="row user-header">
-                <div class="col-2"><span>Imię</span></div>
-                <div class="col-2"><span>Nazwisko</span></div>
-                <div class="col-2"><span>E-mail</span></div>
-                <div class="col-2"><span>Nr telefonu</span></div>
-                <div class="col-2"><span>Hobby</span></div>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <form class="form" id="user-data">
+              <label for="userName">
+                Imię:
+                <input
+                  type="text"
+                  name="userName"
+                  id="userName"
+                  required
+                  placeholder="Podaj swoje imię"
+                />
+              </label>
+              <label for="surname">
+                Nazwisko:
+                <input
+                  type="text"
+                  name="surname"
+                  id="surname"
+                  required
+                  placeholder="Podaj swoje nazwisko"
+                />
+              </label>
+              <div>
+                <label for="email">
+                  E-mail:
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    pattern="^\S+@\S+\.\S+$"
+                    placeholder="Podaj swój email"
+                  />
+                </label>
               </div>
+              <label for="phone">
+                Nr telefonu:
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  pattern="[0-9]{9}"
+                  required
+                  placeholder="Podaj swój numer telefonu"
+                />
+              </label>
+              <label for="hobbys">
+                Wybierz hobby:
+                <select
+                  name="hobbys"
+                  id="hobbys"
+                  placeholder="Podaj swoje hobby"
+                >
+                  <option value="tenis">tenis</option>
+                  <option value="golf">golf</option>
+                  <option value="swim">pływanie</option>
+                  <option value="darts">dartsy</option>
+                  <option value="football">piłka nożna</option>
+                  <option value="volleybay">siatkówka</option>
+                </select>
+              </label>
+              <label for="agree" class="checkbox">
+                <input type="checkbox" name="agree" id="agree" required />
+                <span></span>
+                Akceptuje regulamin
+              </label>
+              <button class="btn-submit" type="submit">Wyślij!</button>
+            </form>
+          </div>
+          <!-- <div class="col-8"> -->
+          <!-- <section class="users-container"> -->
+          <!-- <div class="container"> -->
+          <!-- <div class="row user-header"> -->
+          <!-- <div class="col-2"><span>Imię</span></div> -->
+          <!-- <div class="col-2"><span>Nazwisko</span></div> -->
+          <!-- <div class="col-2"><span>E-mail</span></div> -->
+          <!-- <div class="col-2"><span>Nr telefonu</span></div> -->
+          <!-- <div class="col-2"><span>Hobby</span></div> -->
+          <!-- </div> -->
 
-              <div class="row new-user">
-                <div class="col-2"><span>Jan</span></div>
-                <div class="col-2"><span>Kowalski</span></div>
-                <div class="col-2"><span>jankowalski@gsdasdas.com</span></div>
-                <div class="col-2"><span>22250432</span></div>
-                <div class="col-2"><span>golf</span></div>
-                <div class="col-2"><button class="btn-delete" type="button">usuń</button></div>
-              </div>
-            </div>
-          </section>
+          <!-- <div class="row new-user"> -->
+          <!-- <div class="col-2"><span>Jan</span></div> -->
+          <!-- <div class="col-2"><span>Kowalski</span></div> -->
+          <!-- <div class="col-2"><span>jankowalski@gsdasdas.com</span></div> -->
+          <!-- <div class="col-2"><span>22250432</span></div> -->
+          <!-- <div class="col-2"><span>golf</span></div> -->
+          <!-- <div class="col-2"> -->
+          <!-- <button class="btn-delete" type="button">usuń</button> -->
+          <!-- </div> -->
+          <!-- </div> -->
+          <!-- </div> -->
+          <!-- </section> -->
+          <!-- </div> -->
         </div>
       </div>
-
     </div>
-  </div>
-  <script src="./js/app.js"></script>
-</body>
-
+    <script src="./js/app.js"></script>
+  </body>
 </html>

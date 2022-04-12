@@ -1,129 +1,128 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
 
 .d-none {
-    display: none;
+  display: none;
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .form,
 .users-container {
-    margin: 2em;
-    padding: 3em 1em;
-    border: 1px solid #333;
-    background-color: #eee;
+  margin: 2em;
+  padding: 3em 1em;
+  border: 1px solid #333;
+  background-color: #eee;
+  border-radius: 15px;
+
+  *::placeholder {
+    font-family: "Lato", sans-serif;
+    font-size: 0.8em;
+    padding: 0.3em;
+  }
+
+  label {
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  input,
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    font-size: 1.3em;
+    padding: 1em;
+    margin: 1em 0;
     border-radius: 15px;
+    cursor: pointer;
+    border: 2px solid #ddd;
 
+    &:focus {
+      box-shadow: 2px 0px 20px 0px #ddd;
+      outline: none;
+      border: 2px solid black;
+    }
+  }
 
-    *::placeholder {
-        font-family: 'Lato', sans-serif;
-        font-size: .8em;
-        padding: .3em;
+  .checkbox {
+    display: flex;
+    gap: 1em;
+    cursor: pointer;
+
+    input {
+      display: none;
     }
 
-    label {
-        width: 100%;
-        height: 100%;
-        font-size: 1.5em;
-        font-weight: bold;
+    span {
+      display: block;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #333;
     }
 
-    input,
-    textarea,
-    select {
-        display: block;
-        width: 100%;
-        font-size: 1.3em;
-        padding: 1em;
-        margin: 1em 0;
-        border-radius: 15px;
-        cursor: pointer;
-        border: 2px solid #ddd;
-
-
-        &:focus {
-            box-shadow: 2px 0px 20px 0px #ddd;
-            outline: none;
-            border: 2px solid black;
-        }
-
-
-
+    input:checked + span {
+      background-image: url(../assets/checkmark.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
     }
+  }
 
-    .checkbox {
-        display: flex;
-        gap: 1em;
-        cursor: pointer;
-
-        input {
-            display: none;
-        }
-
-        span {
-            display: block;
-            width: 30px;
-            height: 30px;
-            border: 2px solid #333;
-        }
-
-        input:checked+span {
-            background-image: url(../assets/checkmark.svg);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    }
-
-    .btn-submit {
-        border-radius: 15px;
-        cursor: pointer;
-        display: block;
-        padding: .5em 1em;
-        font-size: 1.5em;
-        border: 2px solid #333;
-        margin: 2em auto 1em;
-        background-color: #eee;
-        font-weight: bold;
-    }
+  .btn-submit {
+    border-radius: 15px;
+    cursor: pointer;
+    display: block;
+    padding: 0.5em 1em;
+    font-size: 1.5em;
+    border: 2px solid #333;
+    margin: 2em auto 1em;
+    background-color: #eee;
+    font-weight: bold;
+  }
 }
 
 .users-container {
-    .user-header {
-        font-size: 1.3em;
-        font-weight: bold;
-        background-color: #ddd;
-    }
+  .user-header {
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: #ddd;
+  }
 
-    .new-user {
-        span {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-        }
+  .new-user {
+    span {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
     }
+  }
 
-    .btn-delete {
-        border: 2px solid rgb(46, 2, 2);
-        background-color: rgb(181, 24, 24);
-        color: #fff;
-        font-weight: bold;
-        font-size: 1em;
-        cursor: pointer;
-        padding: .3em 1em;
-    }
-}
-
-.error-message {
+  .btn-delete {
     border: 2px solid rgb(46, 2, 2);
     background-color: rgb(181, 24, 24);
     color: #fff;
     font-weight: bold;
-    padding: .3em 1em;
     font-size: 1em;
+    cursor: pointer;
+    padding: 0.3em 1em;
+  }
 }
+
+.error-message {
+  border: 2px solid rgb(46, 2, 2);
+  background-color: rgb(181, 24, 24);
+  color: #fff;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  font-size: 1em;
+}
+
+// input:invalid {
+//   background-color: red;
+// }
