@@ -1,75 +1,24 @@
+const form = document.querySelector('form');
+const errorsContent = document.querySelector('#error-message');
+const successContent = document.querySelector('#success-message');
+
 const errorsTypes = {
   empty: "Input must be filled out!",
-  wrongType: "Incorrect type of data!",
-  number: "Number required!",
-  numberLength: "Phone number is incorrect!",
+  telLength: "Phone number is incorrect!",
   email: "@ required!",
   check: "You must accept the rules!",
 };
 
-// window.addEventListener("DOMContentLoaded", () => {
-//   const form = document.querySelector("form");
-//   const formElements = Array.from(form.elements);
-//   // inputs = document.querySelectorAll("input");
-
-//   formElements.forEach((el) => {
-//     el.onblur = validate;
-//     // el.oninvalid = onInvalid;
-//   });
-// });
-
-// function onInvalid(e) {
-//   console.log(e.target);
-// }
-
-// function validate(e) {
-//   const element = e.target;
-//   console.log("element", element.validity);
-//   const isValid = element.validity.valid;
-
-//   if (!isValid) {
-//     showError(element);
-//   } else {
-//     removeError(element);
-//   }
-// }
-
-// function showError(element) {
-//   console.log("element error", element.validity);
-//   if (element.validity.valueMissing) {
-//     const errorElement = element.parentElement.querySelector(".error-message");
-
-//     if (!errorElement) {
-//       createErrorElement(element, errorsTypes.empty);
-//     }
-//   }
-// }
-
-// function removeError(element) {
-//   const errorElement = element.parentElement.querySelector(".error-message");
-//   errorElement.remove();
-// }
-
-// function createErrorElement(element, error) {
-//   const p = document.createElement("p");
-//   p.textContent = error;
-//   p.classList.add("error-message");
-//   element.parentElement.insertBefore(p, element);
-// }
-
 // // przechwycenie i zbudowanie globalErrorsValues niezależnie od ilości inputów
 let globalErrorsValues = [];
 window.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector(".form");
   const formElementsArray = [...form.elements];
-
   for (let i = 0; i < formElementsArray.length; i++) {
     globalErrorsValues.push({
       element: formElementsArray[i].name,
       listOfErrors: [],
     });
   }
-  // console.log(globalErrorsValues);
 });
 
 // // STRUKTURA TABLICY OBIEKTÓW globalErrorsValues :
@@ -86,7 +35,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // // funkcja checkIfErrorExist ma za zadanie sprawdzić czy blur input posiada w globalErrorsValues dany typ błędu
 const checkIfErrorExist = (activeId, activeError) => {
-  globalErrorsValues.forEach((formElement, index) => {
+  globalErrorsValues.forEach(formElement => {
     // console.log(
     //   `sprawdzam czy podany w funkcji element ${activeId} === ${formElement.element}`
     // );
@@ -102,29 +51,25 @@ const checkIfErrorExist = (activeId, activeError) => {
         formElement.listOfErrors.push(activeError);
       }
     } else {
-      // console.log(
-      //   "element podany w funkcji nie jest równy sprawdzanemu elementowi"
-      // );
+      return null;
     }
   });
 };
 
-// chcialem walidację zrobić w jednej funkcji validation (bo nasłuchuje na blur cały formularz - miało być uniwersalnie niezależnie od ilości inputów ale jest problem z instrukcjami warunkowymi bo chciałem w obrębie jednej funkcji zrobić kilka razy if -> else. A else działa dla każdego innego warunku. Jest problem bo usuniecie błedu w jednym inpucie usuwa błedy w innym inpucie -przez else. Jak to zrobić?else if nie może być bo podaje konkretne errorsTypes.(np)empty)
 const validation = (e) => {
   const activeElement = e.target;
   const indexInGlobalErr = globalErrorsValues.findIndex(
     (el) => el.element === activeElement.id
   );
-  if (!activeElement.value) {
+  if ((!activeElement.value) && ((activeElement.type !== "checkbox") && (activeElement.type !== "submit"))) {
     vievError(activeElement, errorsTypes.empty, "empty", indexInGlobalErr);
     checkIfErrorExist(activeElement.id, errorsTypes.empty);
-  } else if (activeElement.value) {
+  } else if ((activeElement.value) && ((activeElement.type !== "checkbox") && (activeElement.type !== "submit"))) {
     globalErrorsValues[indexInGlobalErr].listOfErrors = [
       ...globalErrorsValues[indexInGlobalErr].listOfErrors.filter(
         (e) => e !== errorsTypes.empty
       ),
     ];
-    console.log("globalErrorsValues", globalErrorsValues);
     hideError("empty", activeElement);
   }
 
@@ -142,6 +87,20 @@ const validation = (e) => {
     ];
     hideError("email", activeElement);
   }
+  if ((activeElement.type === "tel") && ((activeElement.value.length > 12) || (activeElement.value.length <= 6) || (isNaN(activeElement.value)))) {
+    vievError(activeElement, errorsTypes.telLength, "tel", indexInGlobalErr);
+    checkIfErrorExist(activeElement.id, errorsTypes.telLength);
+  } else if ((activeElement.type === "tel") && ((!activeElement.value.length > 12) || (!activeElement.value.length <= 6))) {
+    globalErrorsValues[indexInGlobalErr].listOfErrors = [
+      ...globalErrorsValues[indexInGlobalErr].listOfErrors.filter(
+        (e) => e !== errorsTypes.telLength
+      ),
+    ];
+    hideError("tel", activeElement);
+  }
+
+
+
 };
 // funkcja pokazująca czerwoną belke error w formularzu w przypadku błedu
 const vievError = (element, error, atr, index) => {
@@ -154,21 +113,7 @@ const vievError = (element, error, atr, index) => {
   }
 };
 
-// przechwycenie value inputów -> do wykorzystania przy walidacji on submit
-const addUser = (e) => {
-  e.preventDefault();
-  const values = {};
-  for (let el of e.target) {
-    if (el.name) {
-      const value = el.type === "checkbox" ? "checked" : "value";
-      values[el.name] = el[value];
-    }
-  }
-};
-
 const hideError = (typeError, element) => {
-  console.log("typeError", typeError);
-  console.log("element", element);
   const errorElement = element.parentElement.querySelector(
     `[data-error="${typeError}"]`
   );
@@ -177,17 +122,81 @@ const hideError = (typeError, element) => {
   }
 };
 
-const deleteRow = (e) => {
-  const rowToDelete = e.currentTarget;
-  if (e.target.classList.contains("btn-delete")) {
-    rowToDelete.parentElement.removeChild(rowToDelete);
+// WALIDACJA FORMULARZA NA SUBMIT
+// przechwycenie value inputów -> do wykorzystania przy walidacji on submit
+const handleSubmit = (e) => {
+  errorsContent.classList.add("d-none");
+  successContent.classList.add("d-none");
+  e.preventDefault();
+  const values = {};
+  for (let el of e.target) {
+    if (el.name) {
+      const value = el.type === "checkbox" ? "checked" : "value";
+      values[el.name] = el[value];
+    }
   }
-};
+  let errors = [];
+  if (values.userName.length <= 2) {
+    errors.push("Your name is too short");
+  }
+  if (values.surname.length <= 2) {
+    errors.push("Your surname is too short");
+  }
+  if (!values.email.includes("@")) {
+    errors.push("Email must have a sign @");
+  }
+  if ((isNaN(values.phone) || (values.phone.length <= 7))) {
+    errors.push("Phone number is incorrect!");
+  }
+  if (!values.agree) {
+    errors.push("You must accept the terms");
+  }
 
-document.querySelector(".form").addEventListener("submit", addUser);
-const form = document.querySelector(".form");
+  if (errors.length) {
+    errorsContent.classList.remove("d-none");
+    errorsContent.innerHTML = "";
+    errors.forEach(function (err) {
+      const p = document.createElement("p");
+      p.textContent = err;
+      errorsContent.appendChild(p);
+    });
+  }
+  else {
+    successContent.classList.remove("d-none");
+    successContent.textContent = "The form has been sent!"
+    for (let el of e.target) {
+      el.value = "";
+    }
+    document.querySelector('#agree').checked = false;
+    values.agree = false;
+    console.log(values);
+    const tableBody = document.querySelector('.users-container .container');
+    const rowToClone = document.querySelector('.row.user-header');
+    const newLine = rowToClone.cloneNode(true);
+    newLine.classList.add('new-user');
+    newLine.classList.remove('user-header');
+
+    const btnDelete = document.createElement('button');
+    btnDelete.classList.add("btn-delete");
+    btnDelete.textContent = "delete";
+
+    tableBody.appendChild(newLine);
+    newLine.children[0].textContent = values.userName;
+    newLine.children[1].textContent = values.surname;
+    newLine.children[2].textContent = values.email;
+    newLine.children[3].textContent = values.phone;
+    newLine.appendChild(btnDelete);
+
+    document.querySelectorAll(".new-user").forEach((row) => row.addEventListener("click", e => {
+      const rowToDelete = e.currentTarget;
+      if (e.target.classList.contains("btn-delete")) {
+        rowToDelete.parentElement.removeChild(rowToDelete);
+      }
+    }
+    ));
+  }
+}
+
+document.querySelector(".form").addEventListener("submit", handleSubmit);
 const formElements = Array.from(form.elements);
 formElements.forEach((el) => el.addEventListener("blur", validation, true));
-document
-  .querySelectorAll(".new-user")
-  .forEach((row) => row.addEventListener("click", deleteRow));

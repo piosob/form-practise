@@ -10,8 +10,8 @@ body {
 
 .form,
 .users-container {
-  margin: 2em;
-  padding: 3em 1em;
+  margin: 1em .5em .5em .5em;
+  padding: 2em 1em 1em 1em;
   border: 1px solid #333;
   background-color: #eee;
   border-radius: 15px;
@@ -25,7 +25,7 @@ body {
   label {
     width: 100%;
     height: 100%;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
   }
 
@@ -34,9 +34,9 @@ body {
   select {
     display: block;
     width: 100%;
-    font-size: 1.3em;
-    padding: 1em;
-    margin: 1em 0;
+    font-size: 1em;
+    padding: .5em;
+    margin: .5em 0;
     border-radius: 15px;
     cursor: pointer;
     border: 2px solid #ddd;
@@ -64,7 +64,7 @@ body {
       border: 2px solid #333;
     }
 
-    input:checked + span {
+    input:checked+span {
       background-image: url(../assets/checkmark.svg);
       background-repeat: no-repeat;
       background-size: cover;
@@ -72,13 +72,14 @@ body {
   }
 
   .btn-submit {
+    color: #000;
     border-radius: 15px;
     cursor: pointer;
     display: block;
     padding: 0.5em 1em;
     font-size: 1.5em;
     border: 2px solid #333;
-    margin: 2em auto 1em;
+    margin: 1em auto 1em;
     background-color: #eee;
     font-weight: bold;
   }
@@ -92,18 +93,23 @@ body {
   }
 
   .new-user {
+    margin-top: .5em;
+
     span {
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       overflow: hidden;
       width: 100%;
       height: 100%;
+      word-wrap: break-word;
     }
   }
 
   .btn-delete {
+    display: block;
+    margin: 0 auto;
     border: 2px solid rgb(46, 2, 2);
     background-color: rgb(181, 24, 24);
     color: #fff;
@@ -120,9 +126,23 @@ body {
   color: #fff;
   font-weight: bold;
   padding: 0.3em 1em;
-  font-size: 1em;
+  font-size: .8em;
 }
 
-// input:invalid {
-//   background-color: red;
-// }
+.alert {
+  border-radius: 15px;
+  margin: 2em;
+  padding: 1em;
+  border: 2px solid #333;
+  background-color: #eee;
+
+}
+
+.alert-danger {
+  background-color: rgb(251, 182, 182);
+}
+
+.alert-success {
+  background-color: rgb(200, 255, 185);
+
+}

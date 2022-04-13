@@ -51,23 +51,23 @@ button {
 
 .container {
   margin: 0 auto;
-  max-width: 1600px;
-  padding-left: 40px;
-  padding-right: 40px;
+  max-width: 1900px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 [class^=col-] {
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .row {
-  margin-left: -40px;
-  margin-right: -40px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
   .row {
     display: flex;
   }
@@ -107,9 +107,6 @@ button {
   .row .col-12 {
     width: 100%;
   }
-  .row .col-my14per {
-    width: 14.2857142857%;
-  }
 }
 
 .d-none {
@@ -122,8 +119,8 @@ body {
 
 .form,
 .users-container {
-  margin: 2em;
-  padding: 3em 1em;
+  margin: 1em 0.5em 0.5em 0.5em;
+  padding: 2em 1em 1em 1em;
   border: 1px solid #333;
   background-color: #eee;
   border-radius: 15px;
@@ -148,7 +145,7 @@ body {
 .users-container label {
   width: 100%;
   height: 100%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
 }
 .form input,
@@ -159,9 +156,9 @@ body {
 .users-container select {
   display: block;
   width: 100%;
-  font-size: 1.3em;
-  padding: 1em;
-  margin: 1em 0;
+  font-size: 1em;
+  padding: 0.5em;
+  margin: 0.5em 0;
   border-radius: 15px;
   cursor: pointer;
   border: 2px solid #ddd;
@@ -201,13 +198,14 @@ body {
 }
 .form .btn-submit,
 .users-container .btn-submit {
+  color: #000;
   border-radius: 15px;
   cursor: pointer;
   display: block;
   padding: 0.5em 1em;
   font-size: 1.5em;
   border: 2px solid #333;
-  margin: 2em auto 1em;
+  margin: 1em auto 1em;
   background-color: #eee;
   font-weight: bold;
 }
@@ -217,16 +215,22 @@ body {
   font-weight: bold;
   background-color: #ddd;
 }
+.users-container .new-user {
+  margin-top: 0.5em;
+}
 .users-container .new-user span {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  word-wrap: break-word;
 }
 .users-container .btn-delete {
+  display: block;
+  margin: 0 auto;
   border: 2px solid rgb(46, 2, 2);
   background-color: rgb(181, 24, 24);
   color: #fff;
@@ -242,6 +246,22 @@ body {
   color: #fff;
   font-weight: bold;
   padding: 0.3em 1em;
-  font-size: 1em;
+  font-size: 0.8em;
+}
+
+.alert {
+  border-radius: 15px;
+  margin: 2em;
+  padding: 1em;
+  border: 2px solid #333;
+  background-color: #eee;
+}
+
+.alert-danger {
+  background-color: rgb(251, 182, 182);
+}
+
+.alert-success {
+  background-color: rgb(200, 255, 185);
 }
 /*# sourceMappingURL=main.css.map */

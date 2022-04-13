@@ -1,13 +1,10 @@
 @use "sass:math";
 
 $column: 12;
-$gap: 20px;
-$page-width: 1600px;
+$gap: 10px;
+$page-width: 1900px;
 
 .container {
-    // border - pomocniczy później do wywalenia
-    // border: 2px solid black;
-
     margin: 0 auto;
     max-width: $page-width;
     padding-left: $gap*2;
@@ -15,9 +12,6 @@ $page-width: 1600px;
 }
 
 [class^="col-"] {
-    // border - pomocniczy później do wywalenia
-    // border: 2px solid red;
-
     padding: 0 $gap;
     box-sizing: border-box;
     margin-top: math.div($gap, 2);
@@ -28,19 +22,13 @@ $page-width: 1600px;
     margin-left: -$gap*2;
     margin-right: -$gap*2;
 
-    @media (min-width: 600px) {
+    @media (min-width: 1200px) {
         display: flex;
 
         @for $i from 1 through $column {
             .col-#{ $i } {
                 width: math.div(100%, $column) * $i;
             }
-
-        }
-
-        // brakowało tej szerokości do schedule weekpreview
-        .col-my14per {
-            width: 14.28571428571429%;
         }
     }
 }
